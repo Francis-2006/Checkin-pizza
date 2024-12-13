@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Checkin Pizza</title>
+
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Light gray background */
+        }
+
+        header {
+            background-color: darkcyan; /* Dark cyan */
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #e0f7fa; /* Light cyan background for nav */
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: black; /* Dark cyan for the text */
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: paleturquoise; /* Light orange hover effect */
+            color: #ffffff; /* White text on hover */
+        }
+
+        /* Menu items section */
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.2s;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item h3 {
+            color: darkcyan;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .menu-item p {
+            color: #333;
+        }
+
+        /* Workers & Customers Section */
+        .people-section {
+            padding: 50px 20px;
+            background-color: #f0f8ff; /* Alice blue background */
+            text-align: center;
+        }
+
+        .people-section h2 {
+            color: darkcyan;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .people-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .person-item {
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .person-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .person-item h3 {
+            margin: 15px 0 5px;
+            color: darkcyan;
+            font-size: 20px;
+        }
+
+        .person-item p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: darkcyan;
+            color: white;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Menu - Checkin Pizza</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><strong><a href="index.html">Home</a></strong></li>
+            <li><strong><a href="menu.html">Menu</a></strong></li>
+            <li><strong><a href="about.html">About Us</a></strong></li>
+            <li><strong><a href="contact.html">Contact</a></strong></li>
+            <li><strong><a href="order.html">Order Now</a></strong></li>
+            <li><strong><a href="gallery.html">Gallery</a></strong></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Items Section -->
+    <section class="menu-items">
+        <div class="menu-item">
+            <img src="pizza 1.jpg" alt="Margherita Pizza">
+            <h3>Margherita Pizza</h3>
+            <p>A simple classic pizza with tomatoes, cheese, and fresh basil.</p>
+        </div>
+        <div class="menu-item">
+            <img src="pizza 2.jpg" alt="Pepperoni Pizza">
+            <h3>Pepperoni Pizza</h3>
+            <p>Loaded with pepperoni and mozzarella cheese.</p>
+        </div>
+        <div class="menu-item">
+            <img src="pizza 2.jpg" alt="Pepperoni Pizza">
+            <h3>Pepperoni Pizza</h3>
+            <p>Loaded with pepperoni and mozzarella cheese.</p>
+        </div>
+        <div class="menu-item">
+            <img src="pizza 4.jpg" alt="Veggie Pizza">
+            <h3>Veggie Pizza</h3>
+            <p>Topped with bell peppers, onions, mushrooms, and tomatoes.</p>
+        </div>
+        <!-- Add more menu items as necessary -->
+    </section>
+
+    <!-- Workers & Customers Section -->
+    <section class="people-section">
+        <h2>Meet Our Workers & Customers</h2>
+        <div class="people-gallery">
+            <!-- Worker Example -->
+            <div class="person-item">
+                <img src="worker 1.jpg" alt="Worker 1">
+                <h3>John Doe</h3>
+                <p>Head Chef</p>
+            </div>
+            <div class="person-item">
+                <img src="worker 2.jpg" alt="Worker 2">
+                <h3>Jane Smith</h3>
+                <p>Customer Care</p>
+            </div>
+            <!-- Customer Example -->
+            <div class="person-item">
+                <img src="customer 1.jpg" alt="Customer 1">
+                <h3>Emily Johnson</h3>
+                <p>Loyal Customer</p>
+            </div>
+            <div class="person-item">
+                <img src="loyal.jpg" alt="Customer 2">
+                <h3>Michael Brown</h3>
+                <p>Frequent Visitor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 - Developed by Dave Consults.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/check.in_pizza_" target="_blank">
+                <i class="fab fa-instagram"></i> <!-- Instagram Icon -->
+            </a>
+            <a href="https://www.facebook.com/checkinpizza" target="_blank">
+                <i class="fab fa-facebook"></i> <!-- Facebook Icon -->
+            </a>
+            <a href="https://www.tiktok.com/@checkinpizza" target="_blank">
+                <i class="fab fa-tiktok"></i> <!-- TikTok Icon -->
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

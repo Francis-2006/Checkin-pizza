@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkin Pizza - Order</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5; /* Light Background */
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: darkcyan; /* Light Orange */
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar .logo {
+      font-size: 28px;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: color 0.3s;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+      background-color: #cfbc11; /* Light Yellow */
+      color: #333; /* Dark Text */
+    }
+
+    /* Order Form Section */
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: lightcyan; /* White Background for Form */
+      border-radius: 8px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+
+    .container:hover {
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .container h1 {
+      font-size: 32px;
+      color: #ff6f00; /* Darker Light Orange */
+      margin-bottom: 30px;
+    }
+
+    /* Form Styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Align labels and inputs in line */
+    .form-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+      justify-content: space-between; /* Space between label and input */
+    }
+
+    label {
+      font-size: 18px;
+      color: #ffae42; /* Light Orange */
+      margin-right: 10px; /* Space between label and input */
+      flex: 0 0 40%; /* 40% width for label */
+      text-align: right; /* Align label text to the right */
+    }
+
+    select, input[type="number"] {
+      width: 60%; /* 60% width for inputs */
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ffae42; /* Light Orange */
+      border-radius: 5px;
+      background-color: #e0ffff; /* Light Cyan */
+      transition: border-color 0.3s;
+      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    select:focus, input[type="number"]:focus {
+      border-color: #00bcd4; /* Cyan */
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 10px; /* Space between checkbox and label */
+      display: inline-block; /* Align checkboxes nicely */
+    }
+
+    button {
+      background-color: #ffae42; /* Light Orange */
+      color: white;
+      font-size: 18px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background-color: #e68a00; /* Darker Light Orange */
+      transform: translateY(-2px); /* Button lift effect */
+    }
+
+    button:active {
+      transform: translateY(0); /* Reset button lift effect */
+      box-shadow: none; /* Remove shadow */
+    }
+
+    /* Footer */
+    .footer {
+      background-color: darkcyan;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    /* Toppings Styles */
+    .toppings-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+      max-width: 400px;
+      text-align: left; /* Align text to the left */
+      padding: 10px; /* Add padding for better spacing */
+      border: 2px solid rgb(255, 156, 7); /* Light Orange */
+      border-radius: 5px;
+      background-color: #f0f8ff; /* Alice Blue Background */
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .toppings-container label {
+      font-weight: bold; /* Make the label bold */
+      margin-bottom: 5px; /* Space below the label */
+    }
+
+    .toppings-container input[type="checkbox"] {
+      transform: scale(1.2); /* Increase checkbox size */
+      margin-right: 10px; /* Space between checkbox and label */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Checkin Pizza</div>
+    <ul class="nav-links">
+      <li><strong><a href="index.html">Home</a></strong></li>
+      <li><strong><a href="menu.html">Menu</a></strong></li>
+      <li><strong><a href="about.html">About Us</a></strong></li>
+      <li><strong><a href="contact.html">Contact</a></strong></li>
+      <li><strong><a href="order.html">Order Now</a></strong></li>
+      <li><strong><a href="gallery.html">Gallery</a></strong></li>
+    </ul>
+  </header>
+
+  <!-- Order Form Section -->
+  <section class="container">
+    <h1>Place Your Order</h1>
+    <form id="orderForm">
+      <div class="form-group">
+        <label for="pizza">Select Pizza:</label>
+        <select id="pizza" name="pizza">
+          <option value="beef pizza">beef pizza</option>
+          <option value="meat lovers">meat lovers</option>
+          <option value="supreme pizza">supreme pizza</option>
+          <option value="Margherita">Margherita</option>
+          <option value="tunalite">tunalite</option>
+          <option value="pepperoni">pepperoni</option>
+          <option value="Veggie lovers">Veggie lovers</option>
+          <option value="fruit lovers">fruit lovers</option>
+          <option value="hawain">hawain</option>
+          <option value="all season">all season</option>
+          <option value="agona delight">agona delight</option>
+          <option value="chicago bull">chicago bull</option>
+          <option value="botwey express">botwey express</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+      </div>
+
+      <div class="form-group">
+        <label for="size">Size:</label>
+        <select id="size" name="size">
+          <option value="small">personal</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="family">family</option>
+        </select>
+      </div>
+
+      <div class="toppings-container">
+        <label>Select Toppings:</label>
+        <label><input type="checkbox" name="toppings" value="cheese"> Cheese</label>
+        <label><input type="checkbox" name="toppings" value="sausage"> Sausage</label>
+        <label><input type="checkbox" name="toppings" value="bacon"> Bacon</label>
+        <label><input type="checkbox" name="toppings" value="onions"> Onions</label>
+        <label><input type="checkbox" name="toppings" value="mushrooms"> Mushrooms</label>
+      </div>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>Follow us on social media: @checkin_pizza</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const pizza = document.getElementById('pizza').value;
+      const quantity = document.getElementById('quantity').value;
+      const size = document.getElementById('size').value;
+      const toppings = Array.from(document.querySelectorAll('input[name="toppings"]:checked')).map(t => t.value).join(', ');
+
+      // Create WhatsApp message content
+      let message = `Hello Checkin Pizza, I would like to order: `;
+      message += ` Pizza , : ${pizza}`;
+      message += ` Quantity , : ${quantity} `;
+      message += ` Size , : ${size} `;
+      if (toppings) {
+        message += `Toppings , : ${toppings}`;
+      }
+
+      // WhatsApp redirect
+      const whatsappNumber = '+233554807110'; // Replace with your WhatsApp number
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      // Confirmation message
+      alert('Your order has been submitted! You will now be redirected to WhatsApp to confirm your order.');
+
+      // Redirect to WhatsApp
+      window.location.href = whatsappUrl;
+    });
+  </script>
+</body>
+</html>

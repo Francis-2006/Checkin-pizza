@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>checkin pizza - Menu</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Styles for the menu page */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f9ff; /* Light cyan background */
+    }
+
+    .bar {
+        background-color: darkcyan; /* Dark cyan */
+        color: #333; /* Dark gray for text */
+        padding: 15px;
+        text-align: center;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .nav-links li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    .nav-links a {
+        color: #333; /* Dark gray for text */
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: black; /* Darker color on hover */
+    }
+
+    .container {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .pizza-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .pizza-item {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        width: 250px;
+        background-color: white; /* White background for pizza items */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .pizza-item img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .price {
+        font-size: 20px;
+        font-weight: bold;
+        color: orangered; /* Tomato color */
+    }
+
+    .menu-section {
+        padding: 20px;
+        background-color: #ffffff; /* White background */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .menu-items {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px; /* Add space between items */
+    }
+
+    .menu-item {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 15px;
+        width: 300px; /* Make items bigger */
+        text-align: center;
+        background-color: white; /* White background for menu items */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .menu-item img {
+        width: 100%;
+        border-radius: 8px;
+        max-height: 220px; /* Ensure images have consistent height */
+        object-fit: cover; /* Crop to maintain aspect ratio */
+    }
+
+    .add-to-cart {
+        background-color: orangered; /* Tomato color */
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .add-to-cart:hover {
+        background-color: darkcyan; /* Darker color on hover */
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: darkcyan; /* Dark cyan */
+        color: beige; /* Beige for text */
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: black;
+    }
+
+    /* Cart styles */
+    .cart {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart h3 {
+        margin-top: 0;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+    }
+
+    .remove-button {
+        background-color: orangered; /* Red color for remove button */
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .remove-button:hover {
+        background-color: darkcyan; /* Darker color on hover */
+    }
+    .order-button{
+      background-color: green; /* Red color for remove button */
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .order-button:hover{
+      background-color: rgb(11, 82, 11);
+    }
+    .quantity-input{
+      width: 50px;
+     
+    }
+    /* Size selection styles */
+    .size-select {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">checkin pizza</div>
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><strong><a href="index.html">Home</a></strong></li>
+      <li><strong><a href="menu.html">Menu</a></strong></li>
+      <li><strong><a href="about.html">About Us</a></strong></li>
+      <li><strong><a href="contact.html">Contact</a></strong></li>
+      <li><strong><a href="order.html">Order Now</a></strong></li>
+      <li><strong><a href="gallery.html">Gallery</a></strong></li>
+    </ul>
+    <a href="#cart" class="cart-icon">
+      <i class="fa fa-shopping-cart"></i>
+    </a>
+  </header>
+  <button class="add-to-cart" data-name="beef pizza">
+    <i class="fa fa-shopping-cart"></i> Add to Cart
+  </button>
+  
+  
+
+  <section class="container">
+    <h1><strong>Regular</strong></h1>
+    <div class="pizza-list">
+      <div class="pizza-item">
+        <img src="pepperoni pizza.jpg" alt="beef pizza">
+        <h2>beef pizza</h2>
+        <p class="price">GHS 70.00 - 150.00</p>
+        <select class="size-select">
+          <option value="50">personal</option>
+          <option value="80">small</option>
+          <option value="100">medium</option>
+          <option value="100">large</option>
+          <option value="100">family</option>
+        </select>
+        <button class="add-to-cart" data-name="beef pizza">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="meat pizza.jpg" alt="meat lovers">
+        <h2>meat lovers</h2>
+        <p class="price">GHS 75.00 - 160.00</p>
+        <select class="size-select">
+          <option value="50">personal</option>
+          <option value="80">small</option>
+          <option value="100">medium</option>
+          <option value="100">large</option>
+          <option value="100">family</option>
+        </select>
+        <button class="add-to-cart" data-name="meat lovers">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="supreme pizza.jpg" alt="supreme">
+        <h2>supreme</h2>
+        <p class="price">GHS 73.00 - 150.00</p>
+        <select class="size-select">
+          <option value="50">personal</option>
+          <option value="80">small</option>
+          <option value="100">medium</option>
+          <option value="100">large</option>
+          <option value="100">family</option>
+        </select>
+        <button class="add-to-cart" data-name="supreme">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="checkin photos/MARGHERITA PIZZA - Stefano Faita.jpeg" alt="Margherita">
+        <h2>Margherita</h2>
+        <p class="price">GHS 70.00 - 140.00</p>
+        <select class="size-select">
+          <option value="50">personal</option>
+          <option value="80">small</option>
+          <option value="100">medium</option>
+          <option value="100">large</option>
+          <option value="100">family</option>
+        </select>
+        <button class="add-to-cart" data-name="Margherita">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h1><strong>Our Classics</strong></h1>
+    <div class="pizza-list">
+      <div class="pizza-item">
+        <img src="all new 5.png" alt="Classic tunalite">
+        <h2>Classic tunalite</h2>
+        <p class="price">GHS 70.00 - 150.00</p>
+        <select class="size-select">
+          <option value="70">personal</option>
+          <option value="85">small</option>
+          <option value="100">medium</option>
+          <option value="120">large</option>
+          <option value="150">family</option>
+        </select>
+        <button class="add-to-cart" data-name="Classic tunalite">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="checkin photos/Pepperoni and Burrata Pizza with Pesto.jpeg" alt="classic pepperoni">
+        <h2>classic pepperoni</h2>
+        <p class="price">GHS 70.00 - 140.00</p>
+        <select class="size-select">
+          <option value="70">personal</option>
+          <option value="80">small</option>
+          <option value="100">medium</option>
+          <option value="120">large</option>
+          <option value="140">family</option>
+        </select>
+        <button class="add-to-cart" data-name="classic pepperoni">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="checkin photos/pizza 🍕.jpeg" alt="classic Veggie">
+        <h2>classic Veggie</h2>
+        <p class="price">GHS 65.00 - 135.00</p>
+        <select class="size-select">
+          <option value="65">personal</option>
+          <option value="75">small</option>
+          <option value="100">medium</option>
+          <option value="110">large</option>
+          <option value="135">family</option>
+        </select>
+        <button class="add-to-cart" data-name="classic Veggie">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="new ppizza.jpg" alt="fruit lovers">
+        <h2>fruit lovers</h2>
+        <p class="price">GHS 60.00 - 130.00</p>
+        <select class="size-select">
+          <option value="60">personal</option>
+          <option value="75">small</option>
+          <option value="90">medium</option>
+          <option value="110">large</option>
+          <option value="130">family</option>
+        </select>
+        <button class="add-to-cart" data-name="fruit lovers">Add to Cart</button>
+      </div>
+  
+      <div class="pizza-item">
+        <img src="new ppizza.jpg" alt="hawain">
+        <h2>fruit lovers</h2>
+        <p class="price">GHS 70.00 - 140.00</p>
+        <select class="size-select">
+          <option value="70">personal</option>
+          <option value="90">small</option>
+          <option value="100">medium</option>
+          <option value="120">large</option>
+          <option value="140">family</option>
+        </select>
+        <button class="add-to-cart" data-name="fruit lovers">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h1><strong>OUR CUSTOMIZED PIZZAS</strong></h1>
+    <div class="pizza-list">
+      <div class="pizza-item">
+        <img src="all season.png" alt="All season">
+        <h2> all season</h2>
+        <p class="price">GHS 80.00 - 170.00</p>
+        <select class="size-select">
+          <option value="80">personal</option>
+          <option value="100">small</option>
+          <option value="120">medium</option>
+          <option value="140">large</option>
+          <option value="170">family</option>
+        </select>
+        <button class="add-to-cart" data-name="Customize Your Pizza">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="aa.png" alt="Agona delight">
+        <h2>Agona delight</h2>
+        <p class="price">GHS 83.00 - 180.00</p>
+        <select class="size-select">
+          <option value="83">personal</option>
+          <option value="105">small</option>
+          <option value="130">medium</option>
+          <option value="145">large</option>
+          <option value="180">family</option>
+        </select>
+        <button class="add-to-cart" data-name="Agona delight">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="new ppizza.jpg" alt="chicago bull">
+        <h2>chicago bull</h2>
+        <p class="price">GHS 78.00 - 160.00</p>
+        <select class="size-select">
+          <option value="78">personal</option>
+          <option value="95">small</option>
+          <option value="115">medium</option>
+          <option value="135">large</option>
+          <option value="160">family</option>
+        </select>
+        <button class="add-to-cart" data-name="chicago bull">Add to Cart</button>
+      </div>
+      <div class="pizza-item">
+        <img src="pizza 2.jpg" alt="">
+        <h2>botwey express</h2>
+        <p class="price">GHS 75.00 - 150.00</p>
+        <select class="size-select">
+          <option value="75">personal</option>
+          <option value="95">small</option>
+          <option value="115">medium</option>
+          <option value="135">large</option>
+          <option value="150">family</option>
+        </select>
+       
+        <button class="add-to-cart" data-name="botwey express">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="cart">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <span id="total-amount">0.00</span>
+  </div>
+
+  <footer class="footer">
+    <p>Follow Us</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/checkin_pizza/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/checkinpizza" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/checkinpizza" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.tiktok.com/@checkinpizza" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>&copy; 2024 - Developed by Dave Consults.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      const cartItems = document.getElementById('cart-items');
+      const totalAmount = document.getElementById('total-amount');
+      let total = 0;
+  
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const pizzaName = button.getAttribute('data-name');
+          const sizeSelect = button.previousElementSibling; // The select element
+          const selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text; // Get selected size label
+          const pizzaPrice = sizeSelect.value; // Get the price from the value of the selected option
+        
+          total += parseFloat(pizzaPrice);
+          updateCart(pizzaName, selectedSize, pizzaPrice);
+        });
+      });
+  
+      function updateCart(name, size, price) {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        
+        //create Quantity input
+        const quantityInput = document.createElement('input');
+        quantityInput.classList.add('quantity-input');
+        quantityInput.type = 'number';
+        quantityInput.min=1;
+         quantityInput.value=1;
+
+        // Create remove button
+        const removeButton = document.createElement('button');
+        removeButton.classList.add('remove-button');
+        removeButton.innerText = 'Remove';
+
+        // Create Order button
+        const OrderButton=document.createElement("button");
+        OrderButton.classList.add("order-button");
+        OrderButton.innerText="Order Now";
+        
+        // Remove item on click
+        removeButton.addEventListener('click', () => {
+          cartItems.removeChild(cartItem);
+          total -= parseFloat(price); // Deduct the price from total
+          totalAmount.innerText = `Total: GHS ${total.toFixed(2)}`; // Update total amount
+        });
+
+
+        // Order on click
+
+        OrderButton.addEventListener('click', () =>{
+
+
+
+          var QuantityValue = document.querySelector('.quantity-input').value;
+         
+          
+         
+          
+      // Create WhatsApp message content
+      let message = `Hello Checkin Pizza, I would like to order: `;
+      message += ` Pizza : ${name} , `;
+      message += ` Size: ${size} , `;
+      message += `quantity:${QuantityValue}`;
+     
+
+      // WhatsApp redirect
+      const whatsappNumber = '+233554807110'; // Replace with your WhatsApp number
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      // Confirmation message
+      alert('Your order has been submitted! You will now be redirected to WhatsApp to confirm your order.');
+
+      // Redirect to WhatsApp
+      window.location.href = whatsappUrl;
+
+
+
+
+
+        })
+        
+        cartItem.innerHTML = `${name} - Size: ${size}, Price: GHS ${price}`;
+        cartItem.appendChild(removeButton); // Add remove button to cart item
+        cartItem.appendChild(OrderButton); // Add Order button to cart item
+        cartItem.appendChild(quantityInput); // Add quantityInput to cart item
+        
+        cartItems.appendChild(cartItem);
+        
+        totalAmount.innerText = `Total: GHS ${total.toFixed(2)}`; // Update total amount
+      }
+    });
+    
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active'); // Toggle the 'active' class
+    });
+});
+
+    
+  </script>
+  
+  
+  
+</body>
+</html>

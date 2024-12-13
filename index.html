@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkin pizza</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightcyan; /* Light Background */
+            color: darkcyan;
+        }
+        /* Navbar Styles */
+        .navbar {
+            background-color: darkcyan; /* Light Orange */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffe57f; /* Light Yellow */
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('photo_2024-10-09_21-59-19.jpg'); /* Replace with your hero image */
+            background-size: cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 0 0 30px;
+        }
+
+        .hero button {
+            background-color: orange; /* Darker Light Orange */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #e68a00; /* Darker Light Orange */
+        }
+
+        /* Photo Slider Section */
+        #photo-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.2s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+            z-index: 1000;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .menu-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .add-to-cart {
+            background-color: #ffae42;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #e68a00; /* Darker Light Orange */
+        }
+
+        /* Cart Section */
+        .cart-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cart-total {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: darkcyan;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .social-links a {
+            font-weight: bold; /* Make text bold */
+            text-decoration: none; /* Optional: remove underline */
+            color: white;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline; /* Optional: underline on hover */
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3; /* Light Gray */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <style>
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for a sleek effect */
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .spinner {
+            border: 8px solid #f3f3f3; /* Light Gray */
+            border-top: 8px solid #3498db; /* Blue */
+            border-right: 8px solid #e74c3c; /* Red */
+            border-bottom: 8px solid #f1c40f; /* Yellow */
+            border-left: 8px solid #2ecc71; /* Green */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s ease infinite, pulse 2s ease infinite;
+        }
+    
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    
+        /* Adding a pulse effect for a dynamic spinner */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo"> checkin Pizza</div>
+        <ul class="nav-links">
+            <li><strong><a href="index.html">Home</a></strong></li>
+            <li><strong><a href="menu.html">Menu</a></strong></li>
+            <li><strong><a href="about.html">About Us</a></strong></li>
+            <li><strong><a href="contact.html">Contact</a></strong></li>
+            <li><strong><a href="order.html">Order Now</a></strong></li>
+            <li><strong><a href="gallery.html">Gallery</a></strong></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Delicious Pizzas Delivered Fast!</h1>
+            <p>Order now and enjoy the best pizza experience in Ghana.</p>
+            <button onclick="window.location.href='order.html'">Order Now</button>
+        </div>
+    </section>
+
+    <!-- Photo Slider Section -->
+    <section id="photo-slider">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="all season.jpg" alt="Delicious Pepperoni Pizza">
+                </div>
+                <div class="slide">
+                    <img src="checkin pizza 2.jpg" alt="Cheese Pizza with Toppings">
+                </div>
+                <div class="slide">
+                    <img src="all season.jpg" alt="Pizza Slice and Drink">
+                </div>
+                <div class="slide">
+                    <img src="all season.jpg" alt="Freshly Baked Pizza in Oven">
+                </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="all new 1.jpg" alt="Margherita Pizza">
+                <h3>Margherita Pizza</h3>
+                <p>Simple yet sensational, our Margherita Pizza is a timeless classic. With a crispy thin crust,
+                     tangy tomato sauce, fresh mozzarella, and fragrant basil, it delivers authentic Italian flavor in every bite.
+                     A perfect choice for those who appreciate the beauty of simplicity.</p>
+                <button class="add-to-cart" data-name="Margherita Pizza" data-price="70 - 130">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="all season.jpg" alt="Margherita Pizza">
+                <h3>all season</h3>
+                <p>Our All Season Pizza is a delightful masterpiece that brings together the freshest 
+                    ingredients from every season. Topped with a perfect blend of sun-ripened tomatoes,
+                     vibrant vegetables, premium meats, and a mix of gourmet cheeses, each bite is a celebration of flavors.</p>
+                <button class="add-to-cart" data-name="all season" data-price="70 - 130">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="all new 3.jpg" alt="Veggie Pizza">
+                <h3>Veggie Pizza</h3>
+                <p>Bursting with vibrant colors and fresh flavors, our Veggie Lovers Pizza is a delight for vegetable enthusiasts.
+                     Topped with a garden-fresh mix of mushrooms, bell peppers, onions, tomatoes, and olives, 
+                     all layered on a crispy crust with rich tomato sauce and melted cheese.
+                     A wholesome and delicious choice</p>
+                <button class="add-to-cart" data-name="Veggie Pizza" data-price="55">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <h2>Your Cart</h2>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <p class="cart-total">Total: GHS 0.00</p>
+        <button id="checkoutButton">Proceed to Checkout</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/check.in_pizza_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+            <a href="https://www.facebook.com/checkinpizza" target="_blank"><i class="fab fa-facebook"></i> Facebook</a> |
+            <a href="https://www.tiktok.com/@checkinpizza" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+            <p>&copy; 2024 - Developed by Dave Consults.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Slider, Preloader, and Cart Functionality -->
+    <script>
+        // Slider Functionality
+        let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function moveSlide(n) {
+            slideIndex += n;
+
+            if (slideIndex >= totalSlides) {
+                slideIndex = 0;
+            }
+
+            if (slideIndex < 0) {
+                slideIndex = totalSlides - 1;
+            }
+
+            slides.style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
+        }
+
+        // Automatically move to the next slide every 5 seconds (5000ms)
+        function autoSlide() {
+            setInterval(function() {
+                moveSlide(1); // Move to the next slide
+            }, 5000); // Adjust the interval as desired (currently 5 seconds)
+        }
+
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+                autoSlide(); // Start automatic slider after page loads
+            }, 2000); // Adjust preloader time (2000ms = 2 seconds)
+        });
+
+        // Cart Functionality
+        let cart = [];
+
+        // Function to add items to the cart
+        function addToCart(name, price) {
+            cart.push({name: name, price: price});
+            updateCartDisplay();
+        }
+
+        // Function to remove items from the cart
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Remove item by index
+            updateCartDisplay();
+        }
+
+        // Function to update the cart display
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = ''; // Clear the current cart
+
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    ${item.name} - GHS ${item.price} 
+                    <button class="remove-from-cart" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+                total += item.price;
+            });
+
+            document.querySelector('.cart-total').textContent = `Total: GHS ${total.toFixed(2)}`;
+        }
+
+        // Event listeners for all "Add to Cart" buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const itemName = this.getAttribute('data-name');
+                const itemPrice = parseFloat(this.getAttribute('data-price'));
+
+                addToCart(itemName, itemPrice);
+            });
+        });
+
+        // Checkout Functionality
+        document.getElementById('checkoutButton').addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before checking out.');
+            } else {
+                // Create order message
+                let orderMessage = 'New Order:\n';
+                cart.forEach(item => {
+                    orderMessage += `${item.name} - GHS ${item.price}\n`;
+                });
+                orderMessage += `Total: GHS ${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}`;
+                
+                // Encode the message for URL
+                const encodedMessage = encodeURIComponent(orderMessage);
+                
+                // Redirect to WhatsApp with order message
+                window.location.href = `https://wa.me/233557398858?text=${encodedMessage}`; // Replace with your WhatsApp number
+            }
+        });
+    </script>
+</body>
+</html>

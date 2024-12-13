@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Checkin Pizza</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightcyan;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: darkcyan; /* Light Orange */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0ff; /* Light Cyan */
+        }
+
+        /* About Us Hero Section */
+        .hero {
+            background: url('checkin 3.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: lightcyan;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h1 {
+            z-index: 1;
+            font-size: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: darkcyan; /* Light Cyan */
+        }
+
+        .hero p {
+            z-index: 1;
+            font-size: 22px;
+            margin-top: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #ffae42; /* Light Orange */
+        }
+
+        .about-text {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .about-text p {
+            flex: 1 1 45%;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            flex: 1 1 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 550px; /* Increased max-width for larger image */
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Our Story Section */
+        .story-section {
+            background-color: rgb(31, 206, 206); /* Light Orange */
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .story-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .story-section p {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: #e0ffff; /* Light Cyan */
+            padding: 50px 20px;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 35px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 300px; /* Increased width for team member images */
+            height: 300px; /* Increased height for team member images */
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #fa9005; /* Light Orange */
+        }
+
+        .team-member p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: darkcyan;
+            color: beige;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .footer a {
+            color: #f08b08; /* Light Orange */
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ffae42; /* Light Orange on hover */
+        }
+    /* Navbar Styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: darkcyan;
+        padding: 15px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 28px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .menu-toggle {
+        font-size: 28px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: none; /* Hidden on larger screens */
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        gap: 20px;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #0ff; /* Light Cyan */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block; /* Show toggle button */
+        }
+
+        .nav-links {
+            display: none; /* Hide menu by default */
+            flex-direction: column;
+            background-color: darkcyan;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .nav-links.show {
+            display: flex; /* Show menu when toggled */
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+    }
+</style>
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Checkin Pizza</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navMenu">
+            <li><strong><a href="index.html">Home</a></strong></li>
+            <li><strong><a href="menu.html">Menu</a></strong></li>
+            <li><strong><a href="about.html">About Us</a></strong></li>
+            <li><strong><a href="contact.html">Contact</a></strong></li>
+            <li><strong><a href="order.html">Order Now</a></strong></li>
+            <li><strong><a href="gallery.html">Gallery</a></strong></li>
+        </ul>
+    </header>    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-content">
+        <h2>Who We Are</h2>
+        <div class="about-text">
+            <p>
+                Welcome to Checkin Pizza, your ultimate destination for mouth-watering pizzas made with the freshest ingredients. 
+                We believe that pizza is more than just food; it's an experience, and that's why we strive to deliver the best pizza experience in Ghana. 
+                Every pizza we make is crafted with care and passion, ensuring a perfect balance of flavor and satisfaction with every bite.
+            </p>
+            <div class="about-image">
+                <img src="about us page.jpg" alt="Pizza Making Process">
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <h2>Our Story</h2>
+        <p>
+            Checkin Pizza began with a dream to bring authentic pizza to the local community, using the finest ingredients and time-honored recipes.
+            From a small kitchen, we have grown into a beloved spot for pizza lovers across the country. 
+            Our commitment to quality, innovation, and customer satisfaction has been the cornerstone of our success, and we continue to evolve with the needs and tastes of our customers.
+        </p>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="worker 2.jpg" alt="Head Chef">
+                <h3>John Doe</h3>
+                <p><strong>Our talented head chef with over 10 years of experience in creating delicious and innovative pizza recipes.</strong></p>
+            </div>
+            <div class="team-member">
+                <img src="sales.jpg" alt="Operations Manager">
+                <h3>Jane Smith</h3>
+                <p><strong>Jane ensures that everything runs smoothly, from kitchen operations to delivering your favorite pizza on time.</strong></p>
+            </div>
+            <div class="team-member">
+                <img src="aynero.jpg" alt="Delivery Specialist">
+                <h3>Mike Brown</h3>
+                <p><strong>Mike is always ready to deliver your fresh and hot pizzas to your doorsteps, ensuring fast and efficient service.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 - Developed by Dave Consults</p>
+        <p>Follow us on</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/checkin_pizza" target="_blank"><i class="fab fa-instagram"></i> instagram</a>
+            <a href="https://www.facebook.com/checkinpizza" target="_blank"><i class="fab fa-facebook-f"></i> facebook</a>
+            <a href="https://www.tiktok.com/@checkinpizza" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        </div>
+    </footer>
+
+</body>
+</html>
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.classList.toggle("show");
+    }
+</script>
+
