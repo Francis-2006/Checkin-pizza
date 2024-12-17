@@ -170,10 +170,14 @@ footer{
 }
 table{
     border-collapse: collapse;
-    padding: 2rem;
+    /* padding: 2rem; */
+
+    width: 10%;
+    height: 6rem;
+    margin-left: -0.4rem;
 }
 th{
-    padding: 0.7rem;
+    padding: 0rem;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 td{
@@ -193,6 +197,13 @@ td{
     @media(min-width:330px){
 .menu{
     margin-left: -1rem;
+}
+th{
+    padding: 0rem;
+}
+
+#sec4{
+    padding: 1rem;
 }
 
 }
@@ -298,6 +309,9 @@ ul{
 li{
     margin-left: 8px;
 }
+th{
+    padding: 0.3rem;
+}
 }
 @media (min-width:1000px){
     .firstName{
@@ -386,12 +400,12 @@ li{
 
             <i class="fa fa-bars"></i>
             <ul class="menulist">
-            <li><a href="">HOME</a></li>
-            <li><a href="">MENU</a></li>
-            <li><a href="">ABOUT US</a></li>
-            <li><a href="">CONTACT </a></li>
-            <li><a href="">ORDER NOW </a></li>
-            <li><a href="">GALLERY </a></li>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./menu.html">MENU</a></li>
+            <li><a href="./about.html">ABOUT US</a></li>
+            <li><a href="./contact.html">CONTACT </a></li>
+            <li><a href="./order.html">ORDER NOW </a></li>
+            <li><a href="./gallery.html">GALLERY </a></li>
                
             </ul>
 
@@ -480,6 +494,7 @@ li{
         <!-- <th>Price</th> -->
         <th>Quantity</th>
         <th>Size</th>
+        <th>Toppings</th>
         
     </tr>
 
@@ -542,15 +557,18 @@ const deliveryMode =document.getElementById('deliveryMode').value;
 // console.log(deliveryMode);
 
 // getting name ,size and quantity from local storage
-let size =localStorage.getItem('size');
-let quantity =localStorage.getItem('quantity');
-let name =localStorage.getItem('pizza');
+let size =localStorage.getItem('Pizza-size');
+let quantity =localStorage.getItem('number');
+let name =localStorage.getItem('pizzaName');
+let Toppings =localStorage.getItem('Toppings');
+
     
  // Create WhatsApp message content
 let message = `Hello Checkin Pizza, I would like to order: 
 Pizza: ${name} 
 Size: ${size} 
 Quantity: ${quantity} 
+Toppings:${Toppings}
 
 ORDER DETAILS
 __________________ 
@@ -626,11 +644,11 @@ if (Branchvalue === "") {
 
 
  function showCart(e) {
-    let name =localStorage.getItem('pizza');
-    let price =localStorage.getItem('price');
-    let quantity =localStorage.getItem('quantity');
-    let size =localStorage.getItem('size');
-    let total =localStorage.getItem('total');
+    let name =localStorage.getItem('pizzaName');
+    // let price =localStorage.getItem('price');
+    let quantity =localStorage.getItem('number');
+    let size =localStorage.getItem('Pizza-size');
+    let Toppings =localStorage.getItem('Toppings');
 
     let tbody = document.querySelector('.tbody');
 
@@ -658,6 +676,11 @@ if (Branchvalue === "") {
     sizeCell.textContent=size;
 
     row.appendChild(sizeCell);
+
+    const ToppingsCell = document.createElement('td');
+    ToppingsCell.textContent=Toppings;
+
+    row.appendChild(ToppingsCell);
 
     tbody.appendChild(row);
 

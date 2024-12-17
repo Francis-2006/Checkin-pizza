@@ -538,6 +538,12 @@ if (!pizza || !quantity || !size || !Topings) {
 
   alert('Proceed to check Page');
   window.location.href="./Checkoutfororder.html";
+  
+      // // save them in a local storage
+      localStorage.setItem('pizzaName',pizza);
+      localStorage.setItem('number',quantity);
+      localStorage.setItem('Pizza-size',size);
+      localStorage.setItem('Toppings',Topings);
 }
 
 
