@@ -10,44 +10,105 @@
     /* Styles for the menu page */
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f9ff; /* Light cyan background */
+        /* font-family: Arial, sans-serif; */
+        /* margin: 0; */
+        /* padding: 0; */
+        background-color: #ffffff; /* Light cyan background */
     }
+    header{
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            justify-content: center;
+            height:5rem;
+            margin-top: -8px;
+            margin-left: -8px;
+            width: 100%;
+            box-shadow: 0 0 10px grey;
+            border-radius: 5px;
+            padding: 2px;
+            position: absolute;
+            position: fixed;
+            background-color: #ffffff;
+          
+            
 
-    .bar {
-        background-color: darkcyan; /* Dark cyan */
-        color: #333; /* Dark gray for text */
-        padding: 15px;
+            z-index: 3;
+        }
+        .logo{
+            padding: 6px;
+            margin-top: 14px;
+            margin-left: 2px;
+        }
+        ul{
+            margin-top: 3rem;
+            margin-left: -4.5rem;
+            box-shadow: 0 0 8px grey;
+            border-radius: 1rem;
+            padding: 2rem;
+            /* display:none; */
+            margin-top: -25rem;
+            position: absolute;
+            z-index: 4;
+            transition: 0.3s ease-in-out;
+            background-color: #ffffff;
+        }
+        .menuToggle{
+            margin-top: 2rem;
+            margin-left: -6.5rem;
+            position: absolute;
+
+            z-index: 12;
+        }
+        .firstName{
+            
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: red;
+            font-size: 1.1rem;
+            font-style: bold;
+            font-weight: 14rem;
+        }
+       .menu{
+        margin-left: -2rem;
+       }
+       
+       
+        .fa-bars{
+            margin-left: 3rem;
+            margin-top: 1rem;
+            font-size: 1.3rem;
+        }
+        .fa-bars:active{
+            scale: 0.7;
+        }
+
+        li{
+            list-style: none;
+            padding: 2px;
+            margin-bottom: 6px;
+        }
+        li a{
+            text-decoration: none;
+            color: black;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+        }
+        li a:focus{
+            text-decoration: underline;
+        }
+       .cartBtn{
+        width:5rem;
+        height: 2rem;
         text-align: center;
-    }
-
-    .navbar .logo {
-        font-size: 24px;
+        padding: 3px;
+        margin-top: 8px;
+        margin-left: 20px;
+        border: none;
+        background: orangered;
+        color: white;
         font-weight: bold;
-    }
+        border-radius: 5px;
 
-    .nav-links {
-        list-style: none;
-        padding: 0;
-    }
-
-    .nav-links li {
-        display: inline;
-        margin: 0 15px;
-    }
-
-    .nav-links a {
-        color: #333; /* Dark gray for text */
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-        color: black; /* Darker color on hover */
-    }
-
+      }
     .container {
         text-align: center;
         padding: 20px;
@@ -129,7 +190,7 @@
     .footer {
         text-align: center;
         padding: 20px;
-        background-color: darkcyan; /* Dark cyan */
+        background-color: rgb(0, 0, 0); /* Dark cyan */
         color: beige; /* Beige for text */
     }
 
@@ -211,29 +272,219 @@
         width: 100%;
         padding: 5px;
     }
+    
+        /* media responsiveness */
+        
+        @media(min-width:330px){
+.menu{
+    margin-left: -1rem;
+    
+}
+.menuToggle{
+    margin-left: -4rem;
+}
+
+}
+@media(min-width:390px){
+    .menu{
+    margin-left: 1rem;
+}
+
+.menuToggle{
+    margin-left: -5rem;
+}
+}
+@media(min-width:450px){
+    .menu{
+    margin-left: 4.7rem;
+    }
+    td{
+        padding: 7px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    td input::placeholder{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+@media(min-width:500px){
+    .menu{
+    margin-left: 7rem;
+}
+.menuToggle{
+    margin-left: -2rem;
+}
+
+
+   }
+@media(min-width:550px){
+    .menu{
+    margin-left: 10rem;
+}
+}
+@media(min-width:600px){
+
+    .menu{
+    margin-left: 10rem;
+
+}
+
+}
+@media(min-width:700px){
+    .menu{
+    margin-left: 15rem;
+}
+.logo{
+    margin-left: 3rem;
+}
+
+
+
+}
+@media(min-width:768px){
+    .menu{
+    margin-left: 15rem;
+}
+.cartBtn{
+margin-left: 4rem;
+
+}
+}
+@media(min-width:850px){
+    .menu{
+    margin-left: 17rem;
+}
+}
+@media(min-width:970px){        
+
+
+ul{
+    display: flex;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-top: -3.9rem;
+    margin-left: -19rem;
+}
+.logo{
+  margin-left: -8rem;
+}
+.cartBtn{
+  margin-right: 5rem;
+}
+.menuToggle{
+    margin-left: -7rem;
+    margin-top: none;
+  
+}
+table th{
+    padding: 1rem;
+}
+td{
+    padding: 1.4rem;
+}
+td input {
+    outline: none;
+}
+.fa-bars{
+    visibility: collapse;
+}
+li{
+    margin-left: 8px;
+}
+}
+@media (min-width:1000px){
+    .firstName{
+        font-family: 2.4rem;
+    
+}
+}
+
+
+
+@media(min-width:1200px){
+    ul{
+        margin-left: -17rem;
+    }
+    .firstName{
+        font-size: 1.8rem;
+    }
+    span.secondName{
+        font-size: 1.4rem;
+    }
+  
+}
+@media(min-width:1300px){
+    
+    #sec2,#sec3,#sec4{
+        box-shadow: none;
+    }
+
+}
+@media(min-width:1400px){
+    #sec1{
+        width: 54rem;
+        box-shadow: none;
+    }
+    #sec1,#sec2,#sec3,#sec4{
+    box-shadow: none;
+    background: rgb(252, 250, 250);
+}
+}
+
+@media(min-width:1500px){
+    #sec1,#sec2,#sec3,#sec4{
+    box-shadow: none;
+    background: rgb(252, 250, 250);
+}
+
+}
+@media(min-width:1800px){
+
+    #sec1{
+        width: 62rem;
+        box-shadow: 0 0 5px;
+    }  
+}
+
   </style>
 </head>
 <body>
+  <header>
 
-  <header class="navbar">
-    <div class="logo">checkin pizza</div>
-    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
-    <ul class="nav-links">
-      <li><strong><a href="index.html">Home</a></strong></li>
-      <li><strong><a href="menu.html">Menu</a></strong></li>
-      <li><strong><a href="about.html">About Us</a></strong></li>
-      <li><strong><a href="contact.html">Contact</a></strong></li>
-      <li><strong><a href="order.html">Order Now</a></strong></li>
-      <li><strong><a href="gallery.html">Gallery</a></strong></li>
-    </ul>
-    <a href="#cart" class="cart-icon">
-      <i class="fa fa-shopping-cart"></i>
-    </a>
-  </header>
-  <button class="add-to-cart" data-name="beef pizza">
-    <i class="fa fa-shopping-cart"></i> Add to Cart
-  </button>
+    <div class="logo">
+        <span class="firstName">CHECKIN</span><span class="secondName"> PIZZA</span>
+    </div>
+
   
+   <a href="./cart.html"><button class="cartBtn" data-name="beef pizza">
+      <i class="fa fa-shopping-cart"></i>  Cart
+    </button></a>
+    
+
+    <div class="menu">
+
+        <i class="fa fa-bars"></i>
+        <ul class="menulist">
+        <li><a href="./index.html">HOME</a></li>
+        <li><a href="./menu.html" style="text-decoration: 3px underline orange;">MENU</a></li>
+        <li><a href="./about.html">ABOUT US</a></li>
+        <li><a href="./contact.html">CONTACT </a></li>
+        <li><a href="./order.html">ORDER NOW </a></li>
+        <li><a href="./gallery.html">GALLERY </a></li>
+           
+        </ul>
+
+
+    </div>
+
+
+
+
+
+
+</header><br><br><br>
+
+
   
 
   <section class="container">
@@ -425,11 +676,11 @@
     </div>
   </section>
 
-  <div class="cart">
+  <!-- <div class="cart">
     <h3>Your Cart</h3>
     <div id="cart-items"></div>
     <span id="total-amount">0.00</span>
-  </div>
+  </div> -->
 
   <footer class="footer">
     <p>Follow Us</p>
@@ -442,100 +693,71 @@
     <p>&copy; 2024 - Developed by Dave Consults.</p>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
-      const cartItems = document.getElementById('cart-items');
-      const totalAmount = document.getElementById('total-amount');
-      let total = 0;
+<script>
   
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const pizzaName = button.getAttribute('data-name');
-          const sizeSelect = button.previousElementSibling; // The select element
-          const selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text; // Get selected size label
-          const pizzaPrice = sizeSelect.value; // Get the price from the value of the selected option
-        
-          total += parseFloat(pizzaPrice);
-          updateCart(pizzaName, selectedSize, pizzaPrice);
-        });
-      });
-  
-      function updateCart(name, size, price) {
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-        
-        //create Quantity input
-        const quantityInput = document.createElement('input');
-        quantityInput.classList.add('quantity-input');
-        quantityInput.type = 'number';
-        quantityInput.min=1;
-         quantityInput.value=1;
+        //toggling menu bar
+ let bars =document.querySelector('.fa-bars');
+ let menu = document.querySelector('.menulist');
 
-        // Create remove button
-        const removeButton = document.createElement('button');
-        removeButton.classList.add('remove-button');
-        removeButton.innerText = 'Remove';
+ bars.addEventListener('click',(e)=>{
 
-        // Create Order button
-        const OrderButton=document.createElement("button");
-        OrderButton.classList.add("order-button");
-        OrderButton.innerText="Order Now";
-        
-        // Remove item on click
-        removeButton.addEventListener('click', () => {
-          cartItems.removeChild(cartItem);
-          total -= parseFloat(price); // Deduct the price from total
-          totalAmount.innerText = `Total: GHS ${total.toFixed(2)}`; // Update total amount
-        });
+    menu.classList.toggle("menuToggle");
+
+ })
+
+const cart =[];
+
+document.querySelectorAll('.add-to-cart').forEach(button =>{
+
+  button.addEventListener('click',(e) =>{
+const name =e.target.dataset.name;
+let sizeSelect =button.previousElementSibling;
+
+const selectSize=sizeSelect.options[sizeSelect.selectedIndex].text;
+const price =sizeSelect.value;
+
+cart.push({name,price,selectSize});
+// alert(`${name} added to the cart`)
+
+localStorage.setItem("name",name);
+localStorage.setItem("price",price);
+localStorage.setItem("size",selectSize);
+// console.log(cart);
+// console.log(price);
+// console.log(selectSize);
+
+  });
+});
 
 
-        // Order on click
+// document.getElementById('cart-icon').addEventListener('click',() =>{
 
-        OrderButton.addEventListener('click', () =>{
-
-
-
-          var QuantityValue = document.querySelector('.quantity-input').value;
-         
-          
-         
-          
-      // Create WhatsApp message content
-      let message = `Hello Checkin Pizza, I would like to order: `;
-      message += ` Pizza : ${name} , `;
-      message += ` Size: ${size} , `;
-      message += `quantity:${QuantityValue}`;
-     
-
-      // WhatsApp redirect
-      const whatsappNumber = '+233554807110'; // Replace with your WhatsApp number
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-      // Confirmation message
-      alert('Your order has been submitted! You will now be redirected to WhatsApp to confirm your order.');
-
-      // Redirect to WhatsApp
-      window.location.href = whatsappUrl;
+// })
 
 
 
 
 
-        })
-        
-        cartItem.innerHTML = `${name} - Size: ${size}, Price: GHS ${price}`;
-        cartItem.appendChild(removeButton); // Add remove button to cart item
-        cartItem.appendChild(OrderButton); // Add Order button to cart item
-        cartItem.appendChild(quantityInput); // Add quantityInput to cart item
-        
-        cartItems.appendChild(cartItem);
-        
-        totalAmount.innerText = `Total: GHS ${total.toFixed(2)}`; // Update total amount
-      }
-    });
-    
-  </script>
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');

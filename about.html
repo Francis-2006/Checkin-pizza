@@ -10,49 +10,94 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: lightcyan;
+            background-color: rgb(255, 255, 255);
             color: #333;
         }
-
-        /* Navbar Styles */
-        .navbar {
-            background-color: darkcyan; /* Light Orange */
-            padding: 15px 20px;
+        
+        header{
             display: flex;
-            justify-content: space-between;
+            gap: 2rem;
+            height:4rem;
+            padding: 1rem;
+            /* justify-content: space-between; */
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            margin-top: -8px;
+            margin-left: -8px;
+            width: 100%;
+            box-shadow: 0 0 10px grey;
+            border-radius: 5px;
+            padding: 2px;
+            /* position: absolute; */
+            position: fixed;
+            background-color: #ffffff;
+            
+
+            z-index: 3;
+        }
+        .logo{
+            padding: 18px;
+            margin-top: 14px;
+            margin-left: 2px;
+        }
+        ul{
+            margin-top: 3rem;
+            margin-left: -4.5rem;
+            box-shadow: 0 0 8px grey;
+            border-radius: 1rem;
+            padding: 2rem;
+            /* display:none; */
+            margin-top: -25rem;
+            position: absolute;
+            z-index: 4;
+            transition: 0.3s ease-in-out;
+            background-color: #ffffff;
+        }
+        .menuToggle{
+            margin-top: 2rem;
+            margin-left: -4.5rem;
+            position: absolute;
+
+            z-index: 12;
+        }
+        .firstName{
+            
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: red;
+            font-size: 1.1rem;
+            font-style: bold;
+            font-weight: 14rem;
+        }
+       .menu{
+        margin-left: -2rem;
+       }
+       .cart{
+        margin-top: 20px;
+        margin-left: 1rem;
+        display: none;
+       }
+       
+        .fa-bars{
+            margin-left: 10rem;
+            margin-top: 1rem;
+            font-size: 1.3rem;
+        }
+        .fa-bars:active{
+            scale: 0.7;
         }
 
-        .navbar .logo {
-            font-size: 28px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .nav-links {
+        li{
             list-style: none;
-            display: flex;
-            margin: 0;
+            padding: 2px;
+            margin-bottom: 6px;
         }
-
-        .nav-links li {
-            margin: 0 20px;
-        }
-
-        .nav-links a {
+        li a{
             text-decoration: none;
-            color: white;
-            font-size: 18px;
-            transition: color 0.3s;
+            color: black;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
         }
-
-        .nav-links a:hover {
-            color: #0ff; /* Light Cyan */
+        li a:focus{
+            text-decoration: underline;
         }
-
         /* About Us Hero Section */
         .hero {
             background: url('checkin 3.jpg') no-repeat center center/cover;
@@ -206,28 +251,7 @@
         }
 
         /* Footer */
-        footer {
-            background-color: darkcyan;
-            color: beige;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 16px;
-        }
-
-        .footer a {
-            color: #f08b08; /* Light Orange */
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
+       
         .social-icons {
             margin-top: 10px;
         }
@@ -242,102 +266,246 @@
         .social-icons a:hover {
             color: #ffae42; /* Light Orange on hover */
         }
-    /* Navbar Styles */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: darkcyan;
-        padding: 15px 20px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+            
+footer{
+    text-align: center;
+    background: #000000;
+    color: white;
+    padding: 1rem;
+    /* border-radius: 1rem; */
+    margin-top: 1rem;
+    width:100%;
+    margin-left: -1rem;
+    margin-bottom: -10px;
+}
+
+
+
+
+        /* media responsiveness */
+        
+        @media(min-width:330px){
+.menu{
+    margin-left: -1rem;
+    
+}
+.menuToggle{
+    margin-left: 2rem;
+}
+.fa-bars{
+    margin-left: 7rem;
+}
+
+}
+@media(min-width:390px){
+    .menu{
+    margin-left: 1rem;
+}
+
+.menuToggle{
+    margin-left: 3rem;
+}
+}
+@media(min-width:450px){
+    .menu{
+    margin-left: 4.7rem;
+    }
+    td{
+        padding: 7px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    td input::placeholder{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+@media(min-width:500px){
+    .menu{
+    margin-left: 7rem;
+}
+.menuToggle{
+    margin-left: -2rem;
+}
+
+
+   }
+@media(min-width:550px){
+    .menu{
+    margin-left: 10rem;
+}
+}
+@media(min-width:600px){
+
+    .menu{
+    margin-left: 14rem;
+
+}
+
+.menuToggle{
+    margin-left: 2rem;
+}
+}
+@media(min-width:700px){
+    .menu{
+    margin-left: 15rem;
+}
+.logo{
+    margin-left: 3rem;
+}
+
+
+
+}
+@media(min-width:768px){
+    .menu{
+    margin-left: 15rem;
+}
+.cartBtn{
+margin-left: 4rem;
+
+}
+}
+@media(min-width:850px){
+    .menu{
+    margin-left: 23rem;
+}
+}
+@media(min-width:970px){        
+
+
+ul{
+    display: flex;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-top: -3.9rem;
+    margin-left: -18rem;
+}
+.logo{
+  margin-left: 8rem;
+}
+.cartBtn{
+  margin-right: 5rem;
+}
+.menuToggle{
+    margin-left: -7rem;
+    margin-top: none;
+  
+}
+table th{
+    padding: 1rem;
+}
+td{
+    padding: 1.4rem;
+}
+td input {
+    outline: none;
+}
+.fa-bars{
+    visibility: collapse;
+}
+li{
+    margin-left: 8px;
+}
+}
+@media (min-width:1000px){
+    .firstName{
+        font-family: 2.4rem;
+    
+}
+}
+
+
+
+@media(min-width:1200px){
+    ul{
+        margin-left: -17rem;
+    }
+    .firstName{
+        font-size: 1.8rem;
+    }
+    span.secondName{
+        font-size: 1.4rem;
+    }
+  
+}
+@media(min-width:1300px){
+    
+    #sec2,#sec3,#sec4{
+        box-shadow: none;
+    }
+    ul{
+        margin-left: -6rem;
     }
 
-    .logo {
-        font-size: 28px;
-        color: white;
-        font-weight: bold;
+}
+@media(min-width:1400px){
+    #sec1{
+        width: 54rem;
+        box-shadow: none;
     }
+    #sec1,#sec2,#sec3,#sec4{
+    box-shadow: none;
+    background: rgb(252, 250, 250);
+}
 
-    .menu-toggle {
-        font-size: 28px;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: none; /* Hidden on larger screens */
-    }
+}
 
-    .nav-links {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        gap: 20px;
-    }
+@media(min-width:1500px){
+    #sec1,#sec2,#sec3,#sec4{
+    box-shadow: none;
+    background: rgb(252, 250, 250);
+}
 
-    .nav-links li {
-        margin: 0;
-    }
+}
+@media(min-width:1800px){
 
-    .nav-links a {
-        text-decoration: none;
-        color: white;
-        font-size: 18px;
-        transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-        color: #0ff; /* Light Cyan */
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .menu-toggle {
-            display: block; /* Show toggle button */
-        }
-
-        .nav-links {
-            display: none; /* Hide menu by default */
-            flex-direction: column;
-            background-color: darkcyan;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            width: 200px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-        }
-
-        .nav-links.show {
-            display: flex; /* Show menu when toggled */
-        }
-
-        .nav-links li {
-            margin: 10px 0;
-        }
-    }
+    #sec1{
+        width: 62rem;
+        box-shadow: 0 0 5px;
+    }  
+}
+    
+    
 </style>
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.5.2-web/css/all.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="logo">Checkin Pizza</div>
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <ul class="nav-links" id="navMenu">
-            <li><strong><a href="index.html">Home</a></strong></li>
-            <li><strong><a href="menu.html">Menu</a></strong></li>
-            <li><strong><a href="about.html">About Us</a></strong></li>
-            <li><strong><a href="contact.html">Contact</a></strong></li>
-            <li><strong><a href="order.html">Order Now</a></strong></li>
-            <li><strong><a href="gallery.html">Gallery</a></strong></li>
-        </ul>
-    </header>    
+    <header>
+
+        <div class="logo">
+            <span class="firstName">CHECKIN</span><span class="secondName"> PIZZA</span>
+        </div>
+
+        <div class="cart">
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+
+        <div class="menu">
+
+            <i class="fa fa-bars"></i>
+            <ul class="menulist">
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./menu.html">MENU</a></li>
+            <li><a href="./about.html" style="text-decoration: 3px underline orange;">ABOUT US</a></li>
+            <li><a href="./contact.html">CONTACT </a></li>
+            <li><a href="./order.html">ORDER NOW </a></li>
+            <li><a href="./gallery.html">GALLERY </a></li>
+               
+            </ul>
+
+
+        </div>
+
+
+
+
+
+
+    </header><br><br>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -394,23 +562,26 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 - Developed by Dave Consults</p>
-        <p>Follow us on</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/checkin_pizza" target="_blank"><i class="fab fa-instagram"></i> instagram</a>
-            <a href="https://www.facebook.com/checkinpizza" target="_blank"><i class="fab fa-facebook-f"></i> facebook</a>
-            <a href="https://www.tiktok.com/@checkinpizza" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
-        </div>
+    <footer>
+        <h4>Follow us</h4>
+            <div class="icons">
+                <i class=" fab fa-facebook"></i>
+                <i class=" fab fa-instagram"></i>
+                <i class=" fab fa-twitter"></i>
+            </div>
     </footer>
 
 </body>
 </html>
 <script>
-    function toggleMenu() {
-        const navMenu = document.getElementById("navMenu");
-        navMenu.classList.toggle("show");
-    }
+       //toggling menu bar
+ let bars =document.querySelector('.fa-bars');
+ let menu = document.querySelector('.menulist');
+
+ bars.addEventListener('click',(e)=>{
+
+    menu.classList.toggle("menuToggle");
+
+ })
 </script>
 
